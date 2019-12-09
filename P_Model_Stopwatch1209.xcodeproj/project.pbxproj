@@ -8,22 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		CE7FD557239E0FA600B822CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FD556239E0FA600B822CF /* AppDelegate.swift */; };
-		CE7FD559239E0FA600B822CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FD558239E0FA600B822CF /* SceneDelegate.swift */; };
 		CE7FD55B239E0FA600B822CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FD55A239E0FA600B822CF /* ViewController.swift */; };
 		CE7FD55E239E0FA600B822CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7FD55C239E0FA600B822CF /* Main.storyboard */; };
 		CE7FD560239E0FAA00B822CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7FD55F239E0FAA00B822CF /* Assets.xcassets */; };
 		CE7FD563239E0FAA00B822CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7FD561239E0FAA00B822CF /* LaunchScreen.storyboard */; };
+		CE7FD56B239E60B400B822CF /* LogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FD56A239E60B400B822CF /* LogTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CE7FD553239E0FA600B822CF /* P_Model_Stopwatch1209.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P_Model_Stopwatch1209.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7FD556239E0FA600B822CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CE7FD558239E0FA600B822CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CE7FD55A239E0FA600B822CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CE7FD55D239E0FA600B822CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE7FD55F239E0FAA00B822CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE7FD562239E0FAA00B822CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE7FD564239E0FAA00B822CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE7FD56A239E60B400B822CF /* LogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +57,8 @@
 			isa = PBXGroup;
 			children = (
 				CE7FD556239E0FA600B822CF /* AppDelegate.swift */,
-				CE7FD558239E0FA600B822CF /* SceneDelegate.swift */,
 				CE7FD55A239E0FA600B822CF /* ViewController.swift */,
+				CE7FD56A239E60B400B822CF /* LogTableViewCell.swift */,
 				CE7FD55C239E0FA600B822CF /* Main.storyboard */,
 				CE7FD55F239E0FAA00B822CF /* Assets.xcassets */,
 				CE7FD561239E0FAA00B822CF /* LaunchScreen.storyboard */,
@@ -138,9 +138,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE7FD56B239E60B400B822CF /* LogTableViewCell.swift in Sources */,
 				CE7FD55B239E0FA600B822CF /* ViewController.swift in Sources */,
 				CE7FD557239E0FA600B822CF /* AppDelegate.swift in Sources */,
-				CE7FD559239E0FA600B822CF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
