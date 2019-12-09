@@ -50,14 +50,14 @@ class ViewController: UIViewController {
     
     func restoreTimerStatus() {
         if timerIsOn {
-            timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(tickTock), userInfo: nil, repeats: true)
-            
             timerIsOn = true
+            
+            timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(tickTock), userInfo: nil, repeats: true)
         } else {
-                let displayTime = totalTime
-                convertTimeInterval(interval: displayTime)
-                
-                timerIsOn = false
+            timerIsOn = false
+            
+            let displayTime = totalTime
+            convertTimeInterval(interval: displayTime)
         }
     }
     
@@ -66,29 +66,12 @@ class ViewController: UIViewController {
         convertTimeInterval(interval: displayTime)
     }
     
-    func toPause() {
-        if timerIsOn {
-            timer.invalidate()
-            totalTime += Date().timeIntervalSince(startTime)
-            timerIsOn = false
-        }
-    }
-    
     func toStart() {
         if !timerIsOn {
+            timerIsOn = true
+            
             startTime = Date()
             timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(tickTock), userInfo: nil, repeats: true)
-            timerIsOn = true
-        } else {
-            
-        }
-    }
-    
-    func toStop() {
-        if timerIsOn {
-            timer.invalidate()
-            totalTime = 0
-            timerIsOn = false
         } else {
             
         }
@@ -98,12 +81,33 @@ class ViewController: UIViewController {
         toStart()
     }
     
+    func toPause() {
+        if timerIsOn {
+            timerIsOn = false
+            
+            timer.invalidate()
+            totalTime += Date().timeIntervalSince(startTime)
+        }
+    }
+    
+    func toStop() {
+        if timerIsOn {
+            timerIsOn = false
+            
+            timer.invalidate()
+            totalTime = 0
+        } else {
+            
+        }
+    }
+    
     func toReset() {
+        timerIsOn = false
+        
         timer.invalidate()
         totalTime = 0
         let displayTime = totalTime
         convertTimeInterval(interval: displayTime)
-        timerIsOn = false
     }
     
     func convertTimeInterval(interval: TimeInterval) {
