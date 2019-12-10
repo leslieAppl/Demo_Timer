@@ -41,11 +41,40 @@ class ViewController: UIViewController {
     }
     
     @IBOutlet weak var timerDisLbl: UILabel!
+    // Property Observer
+    @IBOutlet weak var timerIsOnLbl: UILabel!
+    @IBOutlet weak var startTimeLbl: UILabel!
+    @IBOutlet weak var totalTimeLbl: UILabel!
+    
+    // Notification
+    let TIMER_IS_ON_UPDATED = Notification.Name("timerIsOnUpdated")
+    let START_TIME_UPDATED = Notification.Name("startTimeUpdated")
+    let TOTAL_TIME_UPDATED = Notification.Name("totalTimeUpdated")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         restoreTimerStatus()
+        
+        timerIsOnLbl.text = "timerIsOn: \(timerIsOn)"
+        startTimeLbl.text = "startTime: \(startTime)"
+        totalTimeLbl.text = "totalTime: \(totalTime)"
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTimerIsOn), name: TIMER_IS_ON_UPDATED, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateStartTime), name: START_TIME_UPDATED, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTotalTime), name: TOTAL_TIME_UPDATED, object: nil)
+    }
+    
+    @objc func updateTimerIsOn() {
+        timerIsOnLbl.text = "timerIsOn: \(timerIsOn)"
+    }
+    
+    @objc func updateStartTime() {
+        startTimeLbl.text = "startTime: \(startTime)"
+    }
+    
+    @objc func updateTotalTime() {
+        totalTimeLbl.text = "totalTime: \(totalTime)"
     }
     
     func restoreTimerStatus() {
@@ -72,6 +101,9 @@ class ViewController: UIViewController {
             
             startTime = Date()
             timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(tickTock), userInfo: nil, repeats: true)
+            
+            NotificationCenter.default.post(name: TIMER_IS_ON_UPDATED, object: nil)
+            NotificationCenter.default.post(name: START_TIME_UPDATED, object: nil)
         } else {
             
         }
@@ -87,6 +119,9 @@ class ViewController: UIViewController {
             
             timer.invalidate()
             totalTime += Date().timeIntervalSince(startTime)
+            
+            NotificationCenter.default.post(name: TIMER_IS_ON_UPDATED, object: nil)
+            NotificationCenter.default.post(name: TOTAL_TIME_UPDATED, object: nil)
         }
     }
     
@@ -96,6 +131,9 @@ class ViewController: UIViewController {
             
             timer.invalidate()
             totalTime = 0
+            
+            NotificationCenter.default.post(name: TIMER_IS_ON_UPDATED, object: nil)
+            NotificationCenter.default.post(name: TOTAL_TIME_UPDATED, object: nil)
         } else {
             
         }
@@ -108,6 +146,9 @@ class ViewController: UIViewController {
         totalTime = 0
         let displayTime = totalTime
         convertTimeInterval(interval: displayTime)
+        
+        NotificationCenter.default.post(name: TIMER_IS_ON_UPDATED, object: nil)
+        NotificationCenter.default.post(name: TOTAL_TIME_UPDATED, object: nil)
     }
     
     func convertTimeInterval(interval: TimeInterval) {

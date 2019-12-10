@@ -9,10 +9,6 @@
 import UIKit
 
 class LogTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var stopWatchIsOnLbl: UILabel!
-    @IBOutlet weak var startTimeLbl: UILabel!
-    @IBOutlet weak var totalTimeLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

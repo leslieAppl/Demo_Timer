@@ -80,20 +80,56 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="U0v-Af-cgX">
+                                <rect key="frame" x="20" y="98" width="83.5" height="77.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timerIsOn: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVn-mV-c2V">
+                                        <rect key="frame" x="0.0" y="0.0" width="83.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="startTime: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xh2-uw-nVX">
+                                        <rect key="frame" x="0.0" y="28.5" width="82" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="totalTime: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5UJ-cJ-t3O">
+                                        <rect key="frame" x="0.0" y="57" width="81" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Property Observer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0JZ-Sh-3Pq">
+                                <rect key="frame" x="108.5" y="56" width="197" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="0JZ-Sh-3Pq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="DVC-yP-YtC"/>
                             <constraint firstItem="vsF-Zz-sSs" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="SaP-6w-Zf3"/>
                             <constraint firstItem="pNU-Zv-a7r" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Yd4-t7-zXD"/>
+                            <constraint firstItem="U0v-Af-cgX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="aWm-kh-qkg"/>
                             <constraint firstItem="vsF-Zz-sSs" firstAttribute="top" secondItem="0Iq-xP-zX1" secondAttribute="bottom" constant="40" id="aal-nI-wrI"/>
+                            <constraint firstItem="U0v-Af-cgX" firstAttribute="top" secondItem="0JZ-Sh-3Pq" secondAttribute="bottom" constant="12" id="bjM-ba-bcS"/>
                             <constraint firstItem="pNU-Zv-a7r" firstAttribute="top" secondItem="vsF-Zz-sSs" secondAttribute="bottom" constant="40" id="dMK-tw-woe"/>
                             <constraint firstItem="vsF-Zz-sSs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pbm-3a-Uj9"/>
+                            <constraint firstItem="0JZ-Sh-3Pq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vHN-c2-z7B"/>
                             <constraint firstItem="0Iq-xP-zX1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vYK-rO-cus"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="startTimeLbl" destination="xh2-uw-nVX" id="1SQ-OE-bso"/>
                         <outlet property="timerDisLbl" destination="0Iq-xP-zX1" id="BGy-89-Xpq"/>
+                        <outlet property="timerIsOnLbl" destination="yVn-mV-c2V" id="sbX-Yf-f4k"/>
+                        <outlet property="totalTimeLbl" destination="5UJ-cJ-t3O" id="4hR-e6-G5W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -115,37 +151,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oWJ-7s-6Ef" id="EHC-4M-5v9">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="EiO-KR-hhx">
-                                            <rect key="frame" x="35" y="11" width="126" height="61.5"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="stopWatchIsOn: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abg-VY-eLL">
-                                                    <rect key="frame" x="0.0" y="0.0" width="126" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="startTime: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxn-dP-nrP">
-                                                    <rect key="frame" x="0.0" y="20.5" width="82" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="totalTime: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ds6-LA-p3C">
-                                                    <rect key="frame" x="0.0" y="41" width="81" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </stackView>
-                                    </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="startTimeLbl" destination="xxn-dP-nrP" id="4Dp-oE-WfJ"/>
-                                    <outlet property="stopWatchIsOnLbl" destination="abg-VY-eLL" id="OHg-wr-hcM"/>
-                                    <outlet property="totalTimeLbl" destination="Ds6-LA-p3C" id="fG7-qf-j09"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
