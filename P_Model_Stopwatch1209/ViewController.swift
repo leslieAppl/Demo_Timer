@@ -41,6 +41,7 @@ class ViewController: UIViewController {
     }
     
     @IBOutlet weak var timerDisLbl: UILabel!
+    
     // Property Observer
     @IBOutlet weak var timerIsOnLbl: UILabel!
     @IBOutlet weak var startTimeLbl: UILabel!
@@ -100,12 +101,11 @@ class ViewController: UIViewController {
             timerIsOn = true
             
             startTime = Date()
+            
             timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(tickTock), userInfo: nil, repeats: true)
             
             NotificationCenter.default.post(name: TIMER_IS_ON_UPDATED, object: nil)
             NotificationCenter.default.post(name: START_TIME_UPDATED, object: nil)
-        } else {
-            
         }
     }
     
@@ -116,8 +116,9 @@ class ViewController: UIViewController {
     func toPause() {
         if timerIsOn {
             timerIsOn = false
-            
             timer.invalidate()
+            
+            // The key difference to the 'toStop()'
             totalTime += Date().timeIntervalSince(startTime)
             
             NotificationCenter.default.post(name: TIMER_IS_ON_UPDATED, object: nil)
@@ -127,24 +128,25 @@ class ViewController: UIViewController {
     
     func toStop() {
         if timerIsOn {
-            timerIsOn = false
-            
-            timer.invalidate()
-            totalTime = 0
-            
-            NotificationCenter.default.post(name: TIMER_IS_ON_UPDATED, object: nil)
-            NotificationCenter.default.post(name: TOTAL_TIME_UPDATED, object: nil)
-        } else {
-            
+        timerIsOn = false
+        timer.invalidate()
+        
+        // The key difference to the 'toPause()'
+        totalTime = 0
+        
+        NotificationCenter.default.post(name: TIMER_IS_ON_UPDATED, object: nil)
+        NotificationCenter.default.post(name: TOTAL_TIME_UPDATED, object: nil)
         }
     }
     
     func toReset() {
+        // The KEY to 'toReset()' don't have 'if condition'
+        // so it could always reset the Timer to '0:00' at any conditions.
         timerIsOn = false
-        
         timer.invalidate()
+        
         totalTime = 0
-//        let displayTime = totalTime
+        
         convertTimeInterval(interval: totalTime)
 
         NotificationCenter.default.post(name: TIMER_IS_ON_UPDATED, object: nil)
@@ -152,11 +154,15 @@ class ViewController: UIViewController {
     }
     
     func convertTimeInterval(interval: TimeInterval) {
+        
         let absInterval = abs(Int(interval))
         
+        // x.truncatingRemainder(dividingBy: 1) is the Remainder of x / 1
+        // E.g. 65.2745 / 1 (the truncating remainder is 0.2745)
         let msec = interval.truncatingRemainder(dividingBy: 1) * 100
+        
         let secs = absInterval % 60
-        let mins = (absInterval / 60) % 6
+        let mins = (absInterval / 60) % 60
         let hrs = (absInterval / 3600)
         
         if hrs == 0 {
