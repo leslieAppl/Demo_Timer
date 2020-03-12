@@ -144,9 +144,9 @@ class ViewController: UIViewController {
         
         timer.invalidate()
         totalTime = 0
-        let displayTime = totalTime
-        convertTimeInterval(interval: displayTime)
-        
+//        let displayTime = totalTime
+        convertTimeInterval(interval: totalTime)
+
         NotificationCenter.default.post(name: TIMER_IS_ON_UPDATED, object: nil)
         NotificationCenter.default.post(name: TOTAL_TIME_UPDATED, object: nil)
     }

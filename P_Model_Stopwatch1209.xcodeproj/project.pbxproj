@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CE7FD553239E0FA600B822CF /* P_Model_Stopwatch1209.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P_Model_Stopwatch1209.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE7FD553239E0FA600B822CF /* Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7FD556239E0FA600B822CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE7FD55A239E0FA600B822CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CE7FD55D239E0FA600B822CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 		CE7FD554239E0FA600B822CF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CE7FD553239E0FA600B822CF /* P_Model_Stopwatch1209.app */,
+				CE7FD553239E0FA600B822CF /* Timer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,7 +84,7 @@
 			);
 			name = P_Model_Stopwatch1209;
 			productName = P_Model_Stopwatch1209;
-			productReference = CE7FD553239E0FA600B822CF /* P_Model_Stopwatch1209.app */;
+			productReference = CE7FD553239E0FA600B822CF /* Timer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -292,7 +292,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gmail.appl.leslie.P-Model-Stopwatch1209";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Timer;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -310,7 +310,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gmail.appl.leslie.P-Model-Stopwatch1209";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Timer;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

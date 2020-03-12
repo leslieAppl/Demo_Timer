@@ -1,7 +1,6 @@
-# Feature
+# Timer 
 
-* Run Background
-
+## Feature
 >Demo_Timer does not have background process. 
 >If you terminated or even killed Demo_Timer, it still counts time.
 >Demo_Timer records users' operations in **UserDefaults**.
